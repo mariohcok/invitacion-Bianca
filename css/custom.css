@@ -1,0 +1,15 @@
+/* css/custom.css */
+
+/* ADAPTACIÓN PARA QUE EL REPRODUCTOR QUEDE FIJO SIEMPRE VISIBLE */
+#controlador-musica {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  bottom: auto !important;
+  z-index: 9999 !important;
+}
+
+/* Ajuste para los modales */
+.modal-dialog {
+  margin-top: 5vh !important;
+}
