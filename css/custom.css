@@ -1,229 +1,74 @@
-/* css/custom.css */
+/* --- DECORACIONES DE LUNAS Y ESTRELLAS PARA BIANCA --- */
 
-/* Reseteo básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 1. Base Setup for Grayscale theme */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #050a15; /* Fondo Azul Noche Profundo */
-    color: #e0e6ed; /* Texto claro azulado */
-    text-align: center;
-    overflow-x: hidden;
+    background-color: #fdfdfd; /* Un blanco suave para dar calidez */
+    color: #444; /* Gris oscuro para el texto, más suave que el negro puro */
+    /* default background config */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: normal;
-}
+/* Usamos pseudo-elementos en el body para las decoraciones fijas en pantalla sin tapar contenido */
 
-/* Botón de música fijo */
-#music-btn {
+/* 2. Banner de Estrellas (image_10.png) en la parte SUPERIOR */
+body::before {
+    content: "";
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #f1c40f; /* Amarillo Estrella/Luna */
-    color: #050a15;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    z-index: 1000;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
-    transition: background 0.3s, transform 0.2s;
-}
-
-#music-btn:hover {
-    background: #f39c12;
-    transform: scale(1.05);
-}
-
-/* Portada (Hero) - Fondo de Estrellas */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(5, 10, 21, 0.6), rgba(5, 10, 21, 0.9)), url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-}
-
-.hero-content h1 {
-    font-size: 5.5rem;
-    color: #f1c40f;
-    margin: 10px 0;
-    text-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
-}
-
-.hero-content h2 {
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
-.hero-content .fecha {
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-    color: #f1c40f;
-}
-
-.hero-content .frase {
-    max-width: 600px;
-    margin: 30px auto;
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #b0c4de;
-    padding: 0 20px;
-}
-
-/* Secciones Generales */
-.seccion {
-    padding: 80px 20px;
-}
-
-/* Cuenta Regresiva */
-.countdown-section {
-    background: #081226; /* Azul Noche Medio */
-}
-
-.countdown-section h3 {
-    font-size: 2.5rem;
-    color: #f1c40f;
-    margin-bottom: 40px;
-}
-
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.countdown .box {
-    background: #0c1a36; /* Azul más claro */
-    padding: 20px;
-    border-radius: 15px;
-    min-width: 100px;
-    border: 1px solid #1a2a4f;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.countdown span {
-    font-size: 3rem;
-    color: #f1c40f;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Detalles (Tarjetas) */
-.detalles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    background: #050a15;
-}
-
-.card {
-    background: #081226;
-    padding: 40px;
-    border-radius: 15px;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 400px;
-    border: 1px solid #1a2a4f;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    height: 120px; /* Ajuste estimado de altura */
+    background-image: url('../img/estrellas_banner.png');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: 100; /* Lo mantiene por encima del fondo pero debajo de ventanas modales */
+    pointer-events: none; /* Permite que el usuario haga clic a través de la imagen */
 }
 
-.card h3 {
-    color: #f1c40f;
-    font-size: 2rem;
-    margin-bottom: 25px;
+/* 3. Acento de Luna y Estrellas (image_9.png) en la ESQUINA SUPERIOR IZQUIERDA */
+body::after {
+    content: "";
+    position: absolute; /* Relative to page scroll */
+    top: 90px; /* Separación de la cabecera */
+    left: 10px;
+    width: 70px; /* Tamaño responsivo pequeño */
+    height: 70px;
+    background-image: url('../img/luna_accent.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Sutilmente transparente */
+    pointer-events: none;
 }
 
-.card p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #b0c4de;
+/* 4. Luna Llena (image_11.png) cerca del mapa o footer */
+/* Asumimos que hay un contenedor principal ID #lugar o una clase similar cerca del footer */
+/* Si no tienes un contenedor claro, esta imagen se puede posicionar al final del body */
+
+#lugar::after { /* Standard assumption for main content area ID/Class near map */
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/luna_llena.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
-/* Botones */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: transparent;
-    color: #f1c40f;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    border: 2px solid #f1c40f;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #f1c40f;
-    color: #050a15;
-    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-}
-
-.btn-asistencia {
-    background: #f1c40f;
-    color: #050a15;
-    margin-top: 30px;
-}
-
-.btn-asistencia:hover {
-    background: transparent;
-    color: #f1c40f;
-}
-
-/* Regalos */
-.regalos {
-    background: #081226;
-}
-
-.regalos h3 {
-    color: #f1c40f;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.regalos p {
-    max-width: 600px;
-    margin: 0 auto 20px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.cbu-box {
-    background: #0c1a36;
+/* Make main content background opaque so accents are more readable */
+.container-principal { /* oArticle, main, whatever standard tag they use in your template */
+    background-color: rgba(255, 255, 255, 0.88); /* blanco con transparencia */
     padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: 15px;
-    border: 1px dashed #f1c40f;
-}
-
-/* Footer */
-footer {
-    padding: 40px;
-    background: #02050b;
-    color: #4a6285;
-    font-size: 1rem;
-    letter-spacing: 2px;
-}
-
-/* Adaptación para celulares */
-@media (max-width: 768px) {
-    .hero-content h1 { font-size: 3.5rem; }
-    .countdown { gap: 10px; }
-    .countdown .box { min-width: 75px; padding: 15px; }
-    .countdown span { font-size: 2rem; }
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative; /* needed for the ::after element above */
+    margin-top: 130px; /* Espacio para la cabecera fija */
 }
