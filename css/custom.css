@@ -75,6 +75,8 @@ body::after {
     margin-top: 130px; /* Espacio para la cabecera fija */
 }
 
+/* css/custom.css */
+
 /* Reseteo básico */
 * {
     margin: 0;
@@ -95,12 +97,61 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
-/* Botón de música fijo */
+/* --- CLASES PARA EFECTO PLATEADO METALIZADO --- */
+
+/* Texto Plateado Metalizado con degradado */
+.metallic-text {
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #e0e0e0 25%,
+        #b0b0b0 50%,
+        #e0e0e0 75%,
+        #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hace visible el degradado de fondo */
+    display: inline-block; /* Necesario para el degradado en texto */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Botón Plateado con borde metalizado */
+.metallic-btn {
+    border: 2px solid;
+    border-image: linear-gradient(to bottom, #ffffff, #b0b0b0, #ffffff) 1;
+    color: #ffffff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.metallic-btn:hover {
+    background: linear-gradient(to bottom, #ffffff, #b0b0b0);
+    color: #050a15;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Botón Plateado relleno (para Asistencia) */
+.metallic-btn-filled {
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0, #b0b0b0);
+    color: #050a15;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.metallic-btn-filled:hover {
+    background: linear-gradient(to bottom, #b0b0b0, #e0e0e0, #ffffff);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+/* --- FIN CLASES METALIZADAS --- */
+
+/* Botón de música fijo (Plateado) */
 #music-btn {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #f1c40f; /* Amarillo Estrella/Luna */
+    background: linear-gradient(to bottom, #ffffff, #b0b0b0);
     color: #050a15;
     border: none;
     padding: 12px 20px;
@@ -114,7 +165,7 @@ h1, h2, h3 {
 }
 
 #music-btn:hover {
-    background: #f39c12;
+    background: linear-gradient(to bottom, #b0b0b0, #ffffff);
     transform: scale(1.05);
 }
 
@@ -129,9 +180,7 @@ h1, h2, h3 {
 
 .hero-content h1 {
     font-size: 5.5rem;
-    color: #f1c40f;
     margin: 10px 0;
-    text-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
 }
 
 .hero-content h2 {
@@ -144,7 +193,6 @@ h1, h2, h3 {
 .hero-content .fecha {
     font-size: 1.2rem;
     letter-spacing: 4px;
-    color: #f1c40f;
 }
 
 .hero-content .frase {
@@ -169,7 +217,6 @@ h1, h2, h3 {
 
 .countdown-section h3 {
     font-size: 2.5rem;
-    color: #f1c40f;
     margin-bottom: 40px;
 }
 
@@ -191,7 +238,6 @@ h1, h2, h3 {
 
 .countdown span {
     font-size: 3rem;
-    color: #f1c40f;
     display: block;
     margin-bottom: 5px;
 }
@@ -216,7 +262,6 @@ h1, h2, h3 {
 }
 
 .card h3 {
-    color: #f1c40f;
     font-size: 2rem;
     margin-bottom: 25px;
 }
@@ -233,30 +278,9 @@ h1, h2, h3 {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 30px;
-    background: transparent;
-    color: #f1c40f;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
-    border: 2px solid #f1c40f;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #f1c40f;
-    color: #050a15;
-    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-}
-
-.btn-asistencia {
-    background: #f1c40f;
-    color: #050a15;
-    margin-top: 30px;
-}
-
-.btn-asistencia:hover {
-    background: transparent;
-    color: #f1c40f;
 }
 
 /* Regalos */
@@ -265,7 +289,6 @@ h1, h2, h3 {
 }
 
 .regalos h3 {
-    color: #f1c40f;
     font-size: 2.5rem;
     margin-bottom: 30px;
 }
@@ -283,7 +306,7 @@ h1, h2, h3 {
     border-radius: 10px;
     display: inline-block;
     margin-top: 15px;
-    border: 1px dashed #f1c40f;
+    border: 1px dashed #ffffff; /* Borde plateado guionado */
 }
 
 /* Footer */
