@@ -1,15 +1,225 @@
 /* css/custom.css */
 
-/* ADAPTACIÓN PARA QUE EL REPRODUCTOR QUEDE FIJO SIEMPRE VISIBLE */
-#controlador-musica {
-  position: fixed !important;
-  top: 20px !important;
-  right: 20px !important;
-  bottom: auto !important;
-  z-index: 9999 !important;
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Ajuste para los modales */
-.modal-dialog {
-  margin-top: 5vh !important;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111111; /* Fondo oscuro elegante */
+    color: #f4f4f4;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+}
+
+/* Botón de música fijo */
+#music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #d4af37; /* Dorado */
+    color: #111;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: background 0.3s;
+}
+
+#music-btn:hover {
+    background: #b5952f;
+}
+
+/* Portada (Hero) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Imagen de fondo libre de derechos desde Unsplash. Puedes cambiar la URL por tu propia foto subiéndola a GitHub */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    color: #d4af37;
+    margin: 10px 0;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-content .fecha {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: #d4af37;
+}
+
+.hero-content .frase {
+    max-width: 600px;
+    margin: 30px auto;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    padding: 0 20px;
+}
+
+/* Secciones Generales */
+.seccion {
+    padding: 80px 20px;
+}
+
+/* Cuenta Regresiva */
+.countdown-section {
+    background: #1a1a1a;
+}
+
+.countdown-section h3 {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 40px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown .box {
+    background: #222222;
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 100px;
+    border: 1px solid #333;
+}
+
+.countdown span {
+    font-size: 3rem;
+    color: #d4af37;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Detalles (Tarjetas) */
+.detalles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background: #111111;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    color: #d4af37;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.card p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dddddd;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: transparent;
+    color: #d4af37;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid #d4af37;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+.btn-asistencia {
+    background: #d4af37;
+    color: #111;
+    margin-top: 30px;
+}
+
+.btn-asistencia:hover {
+    background: transparent;
+    color: #d4af37;
+}
+
+/* Regalos */
+.regalos {
+    background: #1a1a1a;
+}
+
+.regalos h3 {
+    color: #d4af37;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.regalos p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.cbu-box {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px dashed #d4af37;
+}
+
+/* Footer */
+footer {
+    padding: 40px;
+    background: #0a0a0a;
+    color: #777;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3.5rem; }
+    .countdown { gap: 10px; }
+    .countdown .box { min-width: 75px; padding: 15px; }
+    .countdown span { font-size: 2rem; }
 }
