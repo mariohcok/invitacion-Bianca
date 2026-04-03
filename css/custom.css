@@ -221,28 +221,48 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   5. DIVISORES GRÁFICOS (ESTRELLAS Y LUNA)
+   5. DIVISORES GRÁFICOS (LÍNEAS DE SECCIÓN CON ESTRELLAS)
    ========================================================================== */
+/* Estilizando la banda de estrellas para incluir líneas laterales */
 .divisor-seccion {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    display: block;
+    width: 100%; /* Toma todo el ancho de la sección */
+    max-width: 600px; /* Ancho máximo para el elemento completo */
     margin: 0 auto;
+    display: flex; /* Para alinear líneas y estrellas */
+    align-items: center;
     position: absolute;
-    bottom: -30px; 
+    bottom: -30px; /* Posicionamiento igual al anterior, para dividir */
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
 }
 
+/* La imagen de estrellas actual estará en el centro del flex container */
+.divisor-seccion img {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 15px; /* Espacio a los lados de la imagen */
+}
+
+/* Añadimos líneas laterales metálicas usando pseudo-elementos del divisor */
+.divisor-seccion::before,
+.divisor-seccion::after {
+    content: "";
+    height: 1px;
+    flex-grow: 1; /* Las líneas crecen para llenar el espacio */
+    background: linear-gradient(to right, transparent, rgba(176,176,176,0.3), transparent);
+}
+
+/* Divisor estático entre secciones (como el de abajo de la galería) */
 .divisor-abajo {
     position: relative;
     bottom: auto;
     left: auto;
     transform: none;
-    margin: 80px auto 0 auto; 
-    display: block;
+    margin: 80px auto 0 auto;
+    display: flex;
     z-index: 10;
 }
 
@@ -423,5 +443,4 @@ footer {
     .subtitle-xv { 
         font-size: 2.2rem; 
     }
-    }
-    
+}
