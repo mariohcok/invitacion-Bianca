@@ -364,3 +364,32 @@ footer {
     .fecha { font-size: 1.8rem; }
     .subtitle-xv { font-size: 2.2rem; }
         }
+/* --- CORRECCIONES DE ESPACIADO --- */
+
+/* 1. Damos más espacio abajo en la portada para que la frase no choque */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 150px; /* Aumentamos este valor para dar aire */
+}
+
+/* 2. Arreglamos el divisor de estrellas que está debajo de la galería */
+.divisor-abajo {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 60px auto -20px auto; /* Le damos margen arriba y lo centramos */
+    display: block;
+    z-index: 10;
+}
+
+/* 3. Damos aire a la tarjeta de detalles para que no pise el divisor */
+.detalles {
+    padding-top: 80px; 
+}
