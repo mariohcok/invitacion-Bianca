@@ -15,72 +15,92 @@
 </head>
 <body>
 
-<div id="controlador-musica">
-        <div id="play-pause-music" data-estado-music="pause" class="music-anim-icon"></div>
-    </div>
-    <div id="player-musica-fondo"></div>
+    <button id="music-btn-float" class="metallic-btn-circle" title="Reproducir/Pausar Música">🎵</button>
+    
+    <audio id="bg-audio" loop>
+        <source src="https://www.googleapis.com/drive/v3/files/1O8tOqyzqQQfCZXa6R5em88jlRFPpbFnC?alt=media&key=AIzaSyCrwPzKywqfRZmCeAwXhS8Q_xypKKOLi6M">
+    </audio>
 
-    <div class="inv-container container">
-        
-        <header class="hero">
-            <div class="hero-content">
-                <p class="fecha metallic-text">02 . 05 . 2026</p>
-                <h1 class="script-name metallic-text">Bianca</h1>
-                <h2 class="subtitle-xv metallic-text">Mis XV años</h2>
-                <hr class="linea-centro">
-                <div class="quote-container">
-                    <span class="comillas metallic-text">❝</span>
-                    <p class="frase">Te espero para compartir la alegría de esta noche mágica, inolvidable y única bajo las estrellas.</p>
-                    <span class="comillas metallic-text">❞</span>
-                </div>
-            </div>
-            <img src="img/divisor.png" alt="Estrellas horizontales" class="divisor-seccion">
-        </header>
-
-        <section class="seccion cuenta-regresiva countdown-section">
-            <h3 class="metallic-text script-title">Falta</h3>
-            <div id="reloj" class="reloj countdown">
-                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-dias">Días</p></div>
-                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-horas">Hs</p></div>
-                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-minutos">Min</p></div>
-                <div class="box reloj-col no-border"><span class="number metallic-text"></span><p class="time time-segundos">Seg</p></div>
-            </div>
-        </section>
-
-        <section id="detalles" class="seccion detalles cols-eventos">
-            <div class="col-evento card box-col box-col-fiesta">
-                <h3 class="title-col-evento metallic-text">La Fiesta</h3>
-                <div class="info-col info-col-fiesta">
-                    <p>Sábado 15 de Mayo - 20hs</p>
-                    <p>Salon de fiestas Avril</p>
-                    <p>Av. Corrientes 61 CABA</p>
-                    <a href="https://maps.google.com/?q=Av.+Corrientes+61,+CABA" target="_blank" class="btn metallic-btn modal-como-llegar">Ver en Google Maps</a>
-                </div>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="top-star metallic-text">★</div>
+            
+            <div class="fecha-container">
+                <span class="linea-lateral"></span>
+                <p class="fecha metallic-text">02.05.2026</p>
+                <span class="linea-lateral"></span>
             </div>
             
-            <div class="col-evento card box-col card-fiesta-vestuario">
-                <h3 class="title-card-fiesta metallic-text">Dress Code</h3>
-                <div class="info-col">
-                    <p>Una orientación para <br> tu vestuario:</p>
-                    <p><strong>Elegante / Formal</strong></p>
-                </div>
+            <h1 class="script-name metallic-text">Bianca</h1>
+            <h2 class="subtitle-xv metallic-text">Mis XV años</h2>
+            
+            <hr class="linea-centro">
+            
+            <div class="quote-container">
+                <span class="comillas metallic-text">❝</span>
+                <p class="frase">Te espero para compartir la alegría de esta noche mágica, inolvidable y única.</p>
+                <span class="comillas metallic-text">❞</span>
             </div>
-        </section>
+        </div>
+        
+        <img src="img/divisor.png" alt="Estrellas" class="divisor-seccion">
+    </header>
 
-        <section class="seccion regalos fiesta">
-            <h3 class="title metallic-text script-title">Regalos</h3>
-            <p class="subtitle">Si deseas regalarme algo más que tu hermosa presencia...</p>
-            <div class="anim-regalos"></div>
-            <p class="cbu-box"><strong>CBU:</strong> 0000003123456789<br><strong>Alias:</strong> BIANCA.XV.2026</p>
-            <br>
-            <a href="AQUI_PONES_EL_LINK_DE_TU_GOOGLE_FORM" target="_blank" class="btn btn-asistencia metallic-btn-filled">Confirmar Asistencia</a>
-        </section>
+    <section class="seccion countdown-section">
+        <h3 class="metallic-text script-title">Falta</h3>
+        <div class="countdown" id="countdown">
+            <div class="box"><span id="dias" class="metallic-text">00</span><p>Días</p></div>
+            <div class="box"><span id="horas" class="metallic-text">00</span><p>Hs</p></div>
+            <div class="box"><span id="minutos" class="metallic-text">00</span><p>Min</p></div>
+            <div class="box"><span id="segundos" class="metallic-text">00</span><p>Seg</p></div>
+        </div>
+    </section>
 
-        <footer class="seccion footer">
-            <p>#15Bianca - ¡Nos vemos en la fiesta!</p>
-        </footer>
+    <section class="seccion galeria">
+        <h3 class="metallic-text script-title">Mis Fotos</h3>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 1"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 2"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 3"></div>
+            </div>
+        </div>
+        <div class="swipe-hint">
+            <span class="icon">👆</span>
+            <p>Desliza para ver más fotos</p>
+        </div>
+        <img src="img/divisor.png" alt="Estrellas" class="divisor-seccion divisor-abajo">
+    </section>
 
-    </div>
+    <section class="seccion detalles">
+        <div class="card">
+            <h3 class="metallic-text">La Fiesta</h3>
+            <p><strong>Día:</strong> Sábado 2 de Mayo - 20:00 hs</p>
+            <p><strong>Lugar:</strong> Salón Avril</p>
+            <p><strong>Dirección:</strong> Av. Corrientes 61, CABA</p>
+            <a href="https://maps.google.com/?q=Av.+Corrientes+61,+CABA" target="_blank" class="btn metallic-btn">Ver en Google Maps</a>
+        </div>
+        <div class="card">
+            <h3 class="metallic-text">Dress Code</h3>
+            <p><strong>Elegante / Formal</strong></p>
+            <p>Te sugiero venir con zapatos cómodos para bailar toda la noche sin parar.</p>
+        </div>
+    </section>
+
+    <section class="seccion regalos">
+        <h3 class="metallic-text script-title">Regalos</h3>
+        <p>Tu presencia es lo más importante para mí, pero si deseas hacerme un presente, puedes ayudarme con mis sueños:</p>
+        <p class="cbu-box"><strong>CBU:</strong> 0000003123456789<br><strong>Alias:</strong> BIANCA.XV.2026</p>
+        
+        <a href="https://wa.me/549XXXXXXXXXX?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20esta%20gran%20fiesta.%20✨" target="_blank" class="btn btn-asistencia metallic-btn-filled">Confirmar por WhatsApp</a>
+        <br><br>
+        
+        <img src="img/luna_llena.png" alt="Luna" class="luna-footer">
+    </section>
+
+    <footer>
+        <p>#15Bianca - ¡Nos vemos en la fiesta!</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/app.js"></script>
