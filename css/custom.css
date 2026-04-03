@@ -402,3 +402,21 @@ footer {
     /* Reducimos sutilmente el tamaño de la floritura en celulares si sigue pegada */
     letter-spacing: -2px; 
 }
+/* --- CORRECCIÓN FINAL PARA EL NOMBRE: SÓLIDO Y NÍTIDO --- */
+
+.script-name.metallic-text {
+    /* Eliminamos el efecto de degradado complejo */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    
+    /* Ponemos un color blanco sólido, limpio y de alto contraste */
+    color: #ffffff !important; 
+    
+    /* Eliminamos la sombra que causaba el efecto borroso */
+    text-shadow: none !important; 
+    
+    /* Pequeño truco para forzar nitidez en celulares */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
