@@ -8,13 +8,12 @@ const intervalo = setInterval(function() {
     const ahora = new Date().getTime();
     const distancia = fechaFiesta - ahora;
 
-    // Cálculos matemáticos de tiempo
     const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
     const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-    // Inyectamos los resultados en el HTML agregando un "0" si es menor a 10
+    // Inyectamos los resultados
     document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
     document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
     document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
@@ -23,50 +22,47 @@ const intervalo = setInterval(function() {
     // Si la fecha ya pasó
     if (distancia < 0) {
         clearInterval(intervalo);
-        document.getElementById("countdown").innerHTML = "<h2>¡A disfrutar de la fiesta bajo las estrellas!</h2>";
+        document.getElementById("countdown").innerHTML = "<h2 class='metallic-text'>¡Llegó el gran día!</h2>";
     }
 }, 1000);
 
 
-// --- 2. REPRODUCTOR DE MÚSICA (HTML5 Audio) ---
+// --- 2. REPRODUCTOR DE MÚSICA FLOTANTE ---
 const audioFondo = document.getElementById('bg-audio');
-const musicBtn = document.getElementById('music-btn');
+const musicBtn = document.getElementById('music-btn-float');
 
-// Bajar el volumen al 50% para que no asuste al cargar
 audioFondo.volume = 0.5;
 
-// Truco para intentar reproducir la música al primer clic o toque en cualquier parte de la pantalla
+// Intento de autoplay con el primer clic en la pantalla
 window.addEventListener('click', () => {
     if(audioFondo.paused) {
-        audioFondo.play().catch(error => {
-            console.log("El navegador bloqueó la reproducción automática.");
-        });
-        musicBtn.innerText = "🎵 Pausar Música";
+        audioFondo.play().catch(() => console.log("Autoplay bloqueado"));
     }
-}, { once: true }); // El evento global solo se ejecuta una vez
+}, { once: true });
 
-// Control manual del botón visible
+// Botón manual circular
 musicBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evita conflictos con el clic global de arriba
-    
+    e.stopPropagation();
     if (audioFondo.paused) {
         audioFondo.play();
-        musicBtn.innerText = "🎵 Pausar Música";
+        musicBtn.innerText = "⏸️"; // Cambia el icono a pausa
     } else {
         audioFondo.pause();
-        musicBtn.innerText = "🔇 Reproducir Música";
+        musicBtn.innerText = "🎵"; // Cambia el icono a play
     }
 });
-// --- 3. INICIALIZAR CARRUSEL DE FOTOS ---
+
+
+// --- 3. INICIALIZAR CARRUSEL DE FOTOS (SWIPER) ---
 if (typeof Swiper !== 'undefined') {
     var swiper = new Swiper(".mySwiper", {
         effect: "cards",
         grabCursor: true,
-        loop: true, // Hace que las fotos vuelvan a empezar al terminar
+        loop: true, 
         cardsEffect: {
-            perSlideOffset: 8, // Separación visual entre las cartas de atrás
-            perSlideRotate: 4, // Ángulo de rotación de las cartas
-            slideShadows: false, // Desactivamos las sombras por defecto para usar las nuestras en CSS
+            perSlideOffset: 8, 
+            perSlideRotate: 4, 
+            slideShadows: false, 
         },
     });
 }
