@@ -278,12 +278,12 @@ h1, h2, h3 {
 .btn {
     display: inline-block;
     margin-top: 20px;
+    margin-bottom: 20px; /* <- Línea agregada para separar de lo que haya abajo */
     padding: 10px 25px;
     text-decoration: none;
     border-radius: 25px;
     font-weight: 600;
 }
-
 /* Regalos */
 .regalos p {
     max-width: 500px;
@@ -297,7 +297,10 @@ h1, h2, h3 {
     border-radius: 10px;
     display: inline-block;
     margin-top: 15px;
+    margin-right: 20px; /* <- Línea agregada para separar del botón a la derecha */
+    margin-bottom: 20px; /* <- Línea agregada para separar del botón si cae abajo */
     border: 1px dashed #b0b0b0;
+    vertical-align: middle; /* Alinea la caja con el botón */
 }
 
 /* Footer */
