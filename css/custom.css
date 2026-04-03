@@ -1,4 +1,4 @@
-/* css/custom.css */
+/* css/custom.css (DISEÑO FINAL: CUADROS AZUL NOCHE CON ESTRELLAS APOYADAS "AL ESTILO FLORENCIA") */
 
 /* ==========================================================================
    1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
@@ -119,7 +119,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. DIVISORES GRÁFICOS (Ahora integrados en los cuadros)
+   4. DIVISORES GRÁFICOS (Ahora integrados y APOYADOS)
    ========================================================================== */
 /* Eliminamos el .divisor-estrellas viejo y creamos el nuevo efecto de "capas" */
 
@@ -155,29 +155,35 @@ h1, h2, h3 {
 .seccion {
     border-radius: 25px; 
     margin: 0 15px; 
-    padding: 40px 20px 60px 20px; /* Más padding abajo para acomodar las estrellas */
+    padding: 40px 20px 80px 20px; /* Aumentamos el padding inferior para dar espacio a las estrellas que ahora están ARRIBA */
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
     border: 1px solid rgba(176, 176, 176, 0.1); 
     position: relative; /* Necesario para posicionar las estrellas integradas */
-    margin-bottom: 40px; /* Las separa entre sí */
+    margin-bottom: 60px; /* Aumentamos la separación entre tarjetas */
+    overflow: visible; /* Asegura que las estrellas puedan sangrar fuera de la tarjeta */
 }
 
-/* NUEVA MAGIA: Estrellas apoyadas/integradas al final de cada cuadro */
+/* NUEVA MAGIA CORREGIDA: Estrellas apoyadas/integradas ARRIBA de la tarjeta, sangrando hacia abajo */
 .divisor-estrellas-integrado::after {
     content: "";
     position: absolute;
-    bottom: -20px; /* Ligeramente por debajo del borde de la tarjeta para que parezca "apoyada" */
+    /* Ajustamos el posicionamiento para que sangren HACIA ABAJO desde el borde inferior de la tarjeta */
+    bottom: -30px; 
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 95%; /* Un poquito más anchas para que se note el efecto */
     max-width: 350px;
-    height: 50px; /* Altura de la máscara de estrellas */
+    height: 60px; /* Un poco más altas */
     background-image: url('../img/divisor.png');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    z-index: -1; /* Se pone por detrás del texto pero por delante del fondo */
-    opacity: 0.8;
+    
+    /* EL CAMBIO CLAVE: Quitamos z-index: -1 y ponemos uno positivo para que estén ARRIBA */
+    z-index: 2; 
+    
+    opacity: 0.9; /* Un toque más visibles */
+    pointer-events: none; /* Asegura que no interfieran con clics en los elementos de arriba */
 }
 
 /* COLOR 1: Azul noche un poco más claro que el fondo para que flote sutilmente */
