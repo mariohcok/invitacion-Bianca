@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #050a15; /* Fondo Azul Noche Profundo Sólido */
+    background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
     overflow-x: hidden;
@@ -31,7 +31,6 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
-/* Efecto Plateado Metalizado (para textos generales) */
 .metallic-text {
     background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #b0b0b0 50%, #e0e0e0 75%, #ffffff 100%);
     -webkit-background-clip: text;
@@ -41,23 +40,18 @@ h1, h2, h3 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Excepción: Nombre de la cumpleañera (Blanco sólido y ultra nítido) */
 .script-name.metallic-text {
     font-family: 'Great Vibes', cursive;
     font-size: 6rem;
     line-height: 1;
     margin: 10px 0;
     text-transform: none;
-    letter-spacing: -2px; /* Ajuste para que la letra no quede muy separada */
-    
-    /* Anulamos el metalizado para que sea blanco puro */
+    letter-spacing: -2px; 
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
     color: #ffffff; 
     text-shadow: none; 
-    
-    /* Forzamos máxima nitidez en celulares */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -102,7 +96,6 @@ h1, h2, h3 {
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
 
-/* Botón de música flotante circular */
 #music-btn-float {
     position: fixed;
     bottom: 25px;
@@ -128,7 +121,26 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. ESTRUCTURA DE PÁGINA (HERO Y SECCIONES)
+   4. DIVISORES GRÁFICOS (ESTRELLAS COMO BLOQUE)
+   ========================================================================== */
+/* Aquí está la magia: un bloque sólido que separa limpio como en tu video */
+.divisor-estrellas {
+    display: block;
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    margin: 40px auto; /* 40px de respiro arriba y abajo */
+}
+
+.luna-footer {
+    display: block;
+    width: 200px; 
+    opacity: 0.8;
+    margin: 60px auto 20px auto; /* Centrada y separada del botón */
+}
+
+/* ==========================================================================
+   5. ESTRUCTURA DE PÁGINA Y SECCIONES
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -136,9 +148,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    padding-top: 50px;
-    padding-bottom: 150px;
+    padding: 50px 20px;
 }
 
 .hero-content {
@@ -148,12 +158,10 @@ h1, h2, h3 {
     width: 100%;
     max-width: 600px;
     z-index: 2;
-    padding: 0 20px;
 }
 
 .seccion {
-    padding: 60px 20px;
-    position: relative;
+    padding: 20px 20px 40px 20px; /* Redujimos padding porque el divisor ya da margen */
 }
 
 /* Componentes de la portada */
@@ -221,71 +229,15 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   5. DIVISORES GRÁFICOS (LÍNEAS DE SECCIÓN CON ESTRELLAS)
-   ========================================================================== */
-/* Estilizando la banda de estrellas para incluir líneas laterales */
-.divisor-seccion {
-    width: 100%; /* Toma todo el ancho de la sección */
-    max-width: 600px; /* Ancho máximo para el elemento completo */
-    margin: 0 auto;
-    display: flex; /* Para alinear líneas y estrellas */
-    align-items: center;
-    position: absolute;
-    bottom: -30px; /* Posicionamiento igual al anterior, para dividir */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-}
-
-/* La imagen de estrellas actual estará en el centro del flex container */
-.divisor-seccion img {
-    width: auto;
-    max-width: 350px;
-    height: auto;
-    display: block;
-    margin: 0 15px; /* Espacio a los lados de la imagen */
-}
-
-/* Añadimos líneas laterales metálicas usando pseudo-elementos del divisor */
-.divisor-seccion::before,
-.divisor-seccion::after {
-    content: "";
-    height: 1px;
-    flex-grow: 1; /* Las líneas crecen para llenar el espacio */
-    background: linear-gradient(to right, transparent, rgba(176,176,176,0.3), transparent);
-}
-
-/* Divisor estático entre secciones (como el de abajo de la galería) */
-.divisor-abajo {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin: 80px auto 0 auto;
-    display: flex;
-    z-index: 10;
-}
-
-.luna-footer {
-    width: 200px; 
-    opacity: 0.8;
-    margin-top: 40px; 
-}
-
-/* ==========================================================================
    6. COMPONENTES INTERNOS (COUNTDOWN, CARDS, REGALOS, MAPA, GALERÍA)
    ========================================================================== */
    
-/* Cuenta Regresiva */
-.countdown-section {
-    padding-top: 80px; 
-}
-
 .countdown {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .countdown .box {
@@ -308,7 +260,6 @@ h1, h2, h3 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    padding-top: 80px;
 }
 
 .card {
