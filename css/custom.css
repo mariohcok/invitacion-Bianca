@@ -306,6 +306,76 @@ footer {
     font-size: 1rem;
     letter-spacing: 2px;
 }
+/* --- 6. GALERÍA DE FOTOS (Efecto Cartas / Polaroid) --- */
+.galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    overflow: hidden; /* Evita que la pantalla se mueva a los lados al deslizar */
+}
+
+.galeria h3 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Tamaño de las cartas */
+.swiper {
+    width: 280px;
+    height: 380px;
+    padding-bottom: 20px;
+}
+
+/* Diseño estilo Polaroid */
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #ffffff;
+    /* Margen interno: arriba, lados, y más espacio abajo para efecto polaroid */
+    padding: 12px 12px 45px 12px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Texto e icono indicador */
+.swipe-hint {
+    margin-top: 20px;
+    color: #b0c4de;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: pulseHint 2s infinite;
+}
+
+.swipe-hint .icon {
+    font-size: 1.8rem;
+}
+
+@keyframes pulseHint {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(8px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.8; }
+}
+
+@media (min-width: 768px) {
+    .swiper {
+        width: 320px;
+        height: 440px;
+    }
+}
 
 /* --- 5. RESPONSIVE DESIGN (Celulares) --- */
 @media (max-width: 768px) {
