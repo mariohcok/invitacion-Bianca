@@ -170,12 +170,12 @@ h1, h2, h3 {
 }
 
 .comillas {
-    font-size: 2.5rem;
-    line-height: 0;
+    font-size: 3rem; /* Un poco más grandes */
+    line-height: 1; /* Eliminamos el line-height: 0 que las aplastaba */
     display: block;
-    margin: 15px 0;
+    margin: 10px 0;
+    opacity: 0.7; /* Un toque más sutiles */
 }
-
 .frase {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -203,15 +203,15 @@ h1, h2, h3 {
     bottom: auto;
     left: auto;
     transform: none;
-    margin: 60px auto -20px auto; 
+    margin: 80px auto 0 auto; /* Aumentamos el espacio arriba y quitamos el margen negativo abajo */
     display: block;
     z-index: 10;
 }
 
 .luna-footer {
-    width: 150px;
+    width: 200px; /* Luna más grande */
     opacity: 0.8;
-    margin-top: 20px;
+    margin-top: 40px; /* Más espacio antes de la luna */
 }
 
 /* --- 5. ESTRUCTURA DE LAS SECCIONES RESTANTES --- */
