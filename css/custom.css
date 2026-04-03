@@ -1,6 +1,8 @@
 /* css/custom.css */
 
-/* --- 1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL --- */
+/* ==========================================================================
+   1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,30 +11,27 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Fondo Azul Noche Profundo Sólido */
-    background-color: #050a15; 
+    background-color: #050a15; /* Fondo Azul Noche Profundo Sólido */
     color: #e0e6ed;
     text-align: center;
     overflow-x: hidden;
-    /* Ya no necesitamos estas reglas para la imagen de fondo */
-    /* background-image: ...; */
-    /* background-attachment: fixed; */
-    /* background-position: center; */
-    /* background-size: cover; */
 }
 
 h1, h2, h3 {
     font-weight: normal;
 }
 
+/* ==========================================================================
+   2. TIPOGRAFÍAS Y EFECTOS BASE
+   ========================================================================== */
 .script-title {
     font-family: 'Great Vibes', cursive;
-    font-size: 4rem !important;
+    font-size: 4rem;
     text-transform: none;
     font-weight: normal;
 }
 
-/* --- 2. EFECTO PLATEADO METALIZADO --- */
+/* Efecto Plateado Metalizado (para textos generales) */
 .metallic-text {
     background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #b0b0b0 50%, #e0e0e0 75%, #ffffff 100%);
     -webkit-background-clip: text;
@@ -40,6 +39,41 @@ h1, h2, h3 {
     color: transparent; 
     display: inline-block; 
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Excepción: Nombre de la cumpleañera (Blanco sólido y ultra nítido) */
+.script-name.metallic-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 10px 0;
+    text-transform: none;
+    letter-spacing: -2px; /* Ajuste para que la letra no quede muy separada */
+    
+    /* Anulamos el metalizado para que sea blanco puro */
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #ffffff; 
+    text-shadow: none; 
+    
+    /* Forzamos máxima nitidez en celulares */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   3. BOTONES
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
 }
 
 .metallic-btn {
@@ -93,7 +127,9 @@ h1, h2, h3 {
     transform: scale(1.1);
 }
 
-/* --- 3. PORTADA (HERO) EXACTA AL EJEMPLO --- */
+/* ==========================================================================
+   4. ESTRUCTURA DE PÁGINA (HERO Y SECCIONES)
+   ========================================================================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -112,8 +148,15 @@ h1, h2, h3 {
     width: 100%;
     max-width: 600px;
     z-index: 2;
+    padding: 0 20px;
 }
 
+.seccion {
+    padding: 60px 20px;
+    position: relative;
+}
+
+/* Componentes de la portada */
 .top-star {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -141,14 +184,6 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-.script-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 6rem;
-    line-height: 1;
-    margin: 10px 0;
-    text-transform: none;
-}
-
 .subtitle-xv {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
@@ -170,12 +205,13 @@ h1, h2, h3 {
 }
 
 .comillas {
-    font-size: 3rem; /* Un poco más grandes */
-    line-height: 1; /* Eliminamos el line-height: 0 que las aplastaba */
+    font-size: 3rem;
+    line-height: 1; 
     display: block;
     margin: 10px 0;
-    opacity: 0.7; /* Un toque más sutiles */
+    opacity: 0.7; 
 }
+
 .frase {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -184,7 +220,9 @@ h1, h2, h3 {
     color: #e0e6ed;
 }
 
-/* --- 4. DIVISORES DE SECCIÓN (Las imágenes que subiste) --- */
+/* ==========================================================================
+   5. DIVISORES GRÁFICOS (ESTRELLAS Y LUNA)
+   ========================================================================== */
 .divisor-seccion {
     width: 90%;
     max-width: 350px;
@@ -203,28 +241,26 @@ h1, h2, h3 {
     bottom: auto;
     left: auto;
     transform: none;
-    margin: 80px auto 0 auto; /* Aumentamos el espacio arriba y quitamos el margen negativo abajo */
+    margin: 80px auto 0 auto; 
     display: block;
     z-index: 10;
 }
 
 .luna-footer {
-    width: 200px; /* Luna más grande */
+    width: 200px; 
     opacity: 0.8;
-    margin-top: 40px; /* Más espacio antes de la luna */
+    margin-top: 40px; 
 }
 
-/* --- 5. ESTRUCTURA DE LAS SECCIONES RESTANTES --- */
-.seccion {
-    padding: 60px 20px;
-    position: relative;
-}
-
+/* ==========================================================================
+   6. COMPONENTES INTERNOS (COUNTDOWN, CARDS, REGALOS, MAPA, GALERÍA)
+   ========================================================================== */
+   
+/* Cuenta Regresiva */
 .countdown-section {
     padding-top: 80px; 
 }
 
-/* Cuenta Regresiva */
 .countdown {
     display: flex;
     justify-content: center;
@@ -246,7 +282,7 @@ h1, h2, h3 {
     margin-bottom: 5px;
 }
 
-/* Detalles (Tarjetas) */
+/* Detalles y Tarjetas */
 .detalles {
     display: flex;
     flex-wrap: wrap;
@@ -275,16 +311,7 @@ h1, h2, h3 {
     line-height: 1.6;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px; /* <- Línea agregada para separar de lo que haya abajo */
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-}
-/* Regalos */
+/* Regalos y CBU */
 .regalos p {
     max-width: 500px;
     margin: 0 auto 20px;
@@ -295,21 +322,28 @@ h1, h2, h3 {
     background: rgba(12, 26, 54, 0.7);
     padding: 20px;
     border-radius: 10px;
-    display: block; /* Esto fuerza a que el cuadro ocupe su propia línea */
-    width: fit-content; /* Evita que el cuadro se estire por toda la pantalla */
-    margin: 15px auto 30px auto; /* Lo centra y le da 30px de espacio abajo para separarlo del botón */
+    display: block; 
+    width: fit-content; 
+    margin: 15px auto 30px auto; 
     border: 1px dashed #b0b0b0;
 }
 
-/* Footer */
-footer {
-    padding: 30px;
-    background: #02050b;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+/* Mapa Interactivo */
+.mapa-container {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; 
+    border: 1px solid rgba(176, 176, 176, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* --- 6. GALERÍA DE FOTOS (Swiper Polaroid) --- */
+.mapa-container iframe {
+    display: block; 
+    width: 100%;
+}
+
+/* Galería de Fotos (Swiper) */
 .galeria {
     display: flex;
     flex-direction: column;
@@ -354,7 +388,9 @@ footer {
     animation: pulseHint 2s infinite;
 }
 
-.swipe-hint .icon { font-size: 1.5rem; }
+.swipe-hint .icon { 
+    font-size: 1.5rem; 
+}
 
 @keyframes pulseHint {
     0% { transform: translateY(0); opacity: 0.8; }
@@ -362,61 +398,30 @@ footer {
     100% { transform: translateY(0); opacity: 0.8; }
 }
 
+/* Footer */
+footer {
+    padding: 30px;
+    background: #02050b;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Pantallas grandes)
+   ========================================================================== */
 @media (min-width: 768px) {
-    .swiper { width: 320px; height: 440px; }
-    .script-name { font-size: 8rem; }
-    .fecha { font-size: 1.8rem; }
-    .subtitle-xv { font-size: 2.2rem; }
-}
-/* --- ESTILOS PARA EL MAPA INTERACTIVO --- */
-.mapa-container {
-    margin-top: 20px;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden; /* Esto asegura que el mapa respete los bordes redondeados */
-    border: 1px solid rgba(176, 176, 176, 0.3);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-}
-
-.mapa-container iframe {
-    display: block; /* Elimina un pequeño margen fantasma debajo del iframe */
-    width: 100%;
-}
-/* --- CORRECCIÓN DE NITIDEZ Y ESPACIO PARA EL NOMBRE EN CELULARES --- */
-
-/* 1. Damos más aire a los costados para que la B no parezca pegada/cortada */
-.hero-content {
-    padding: 0 20px; /* Aumentamos el padding lateral de 0 a 20px */
-}
-
-/* 2. Mejoramos la nitidez del nombre */
-.script-name.metallic-text {
-    /* Trucos de CSS para forzar al navegador a renderizar el texto más nítido */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    .swiper { 
+        width: 320px; 
+        height: 440px; 
+    }
+    .script-name.metallic-text { 
+        font-size: 8rem; 
+    }
+    .fecha { 
+        font-size: 1.8rem; 
+    }
+    .subtitle-xv { 
+        font-size: 2.2rem; 
+    }
+    }
     
-    /* Refinamos el text-shadow para que no sea tan difuso */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); 
-    
-    /* Reducimos sutilmente el tamaño de la floritura en celulares si sigue pegada */
-    letter-spacing: -2px; 
-}
-/* --- CORRECCIÓN FINAL PARA EL NOMBRE: SÓLIDO Y NÍTIDO --- */
-
-.script-name.metallic-text {
-    /* Eliminamos el efecto de degradado complejo */
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    
-    /* Ponemos un color blanco sólido, limpio y de alto contraste */
-    color: #ffffff !important; 
-    
-    /* Eliminamos la sombra que causaba el efecto borroso */
-    text-shadow: none !important; 
-    
-    /* Pequeño truco para forzar nitidez en celulares */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
