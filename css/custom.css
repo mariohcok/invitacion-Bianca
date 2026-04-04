@@ -11,7 +11,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Fondo principal: AZUL NOCHE PROFUNDO */
     background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
@@ -154,33 +153,30 @@ h1, h2, h3 {
 .seccion {
     border-radius: 25px; 
     margin: 0 15px; 
-    padding: 50px 20px 40px 20px; /* Más espacio arriba para que el texto no choque con las estrellas */
+    padding: 50px 20px 40px 20px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
     border: 1px solid rgba(176, 176, 176, 0.1); 
     position: relative; 
-    margin-top: 40px; /* Da espacio para las estrellas que sobresalen por arriba */
+    margin-top: 40px; 
     margin-bottom: 40px; 
     overflow: visible; 
 }
 
-/* NUEVA MAGIA: Estrellas apoyadas en la parte SUPERIOR de cada cuadro */
+/* Estrellas apoyadas en la parte SUPERIOR de cada cuadro */
 .divisor-estrellas-integrado::after {
     content: "";
     position: absolute;
-    top: -35px; /* <--- ¡ESTE ERA EL SECRETO! Las movemos al borde superior */
+    top: -35px; 
     left: 50%;
     transform: translateX(-50%);
     width: 95%; 
     max-width: 350px;
     height: 60px; 
-    
-    /* Nota: Si tus estrellas no cargan, cambia 'img/divisor.png' por 'divisor.png' dependiendo de tu carpeta en GitHub */
-    background-image: url('../img/divisor.png'); 
+    background-image: url('../divisor.png'); 
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
-    
-    z-index: 10; /* Para que pisen el borde de la tarjeta */
+    z-index: 10; 
     opacity: 0.9; 
     pointer-events: none; 
 }
@@ -298,6 +294,8 @@ h1, h2, h3 {
 }
 
 .swiper { width: 280px; height: 380px; padding-bottom: 20px; margin-top: 20px; }
+
+/* AQUÍ CORREGÍ EL NOMBRE DE LA CLASE DE VUELTA A .swiper-slide */
 .swiper-slide {
     display: flex; align-items: center; justify-content: center;
     border-radius: 8px; background-color: #ffffff; padding: 12px 12px 45px 12px; 
@@ -334,4 +332,4 @@ footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 
     .fecha { font-size: 1.8rem; }
     .subtitle-xv { font-size: 2.2rem; }
     .seccion { max-width: 800px; margin: 40px auto; } 
-}
+   }
