@@ -271,10 +271,38 @@ h1, h2, h3 {
     background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 10px;
-    display: block; 
-    width: fit-content; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Separa el CBU del Alias */
+    width: 100%; 
+    max-width: 300px;
     margin: 15px auto 30px auto; 
     border: 1px dashed #b0b0b0;
+}
+
+.cbu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pone el texto a la izquierda y el botón a la derecha */
+    gap: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid #b0b0b0;
+    color: #e0e6ed;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Mapa Interactivo */
