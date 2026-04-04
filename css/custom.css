@@ -174,7 +174,7 @@ h1, h2, h3 {
     max-width: 350px;
     height: 60px; /* Un poco más altas */
     /* Apuntamos al archivo divisor.png que está en la carpeta raíz, no en img */
-    background-image: url('../divisor.png');
+    background-image: url('../img/divisor.png');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
