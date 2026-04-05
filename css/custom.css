@@ -384,10 +384,11 @@ footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 
 
 .ig-hashtag {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
-    margin-top: 5px;
+    font-size: 2.6rem; /* Achicamos la letra para que entre en celulares */
+    margin-top: 10px;
     line-height: 1;
     text-transform: none;
+    word-wrap: break-word; /* Asegura que no se salga de la caja */
 }
 
 /* Botón con efecto Instagram al pasar el dedo/mouse */
